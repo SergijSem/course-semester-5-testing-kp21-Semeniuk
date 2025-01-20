@@ -1,0 +1,42 @@
+﻿@model Atomicity.Models.DocumentModel
+
+@{
+    ViewData["Title"] = "Атомарність і двохзначність";
+}
+
+<div class="file-upload-container">
+    <div class="file-upload-box">
+        <div class="left-box">
+            <div class="drag-area" id="drag-area">
+                <img src="/images/drag_drop.png" alt="Перетягніть файл" class="drag-image" />
+                <p id="drag-text">Перетягніть файл</p>
+            </div>
+        </div>
+
+        <div class="right-box">
+            <h2>Або виберіть файл</h2>
+            <form enctype="multipart/form-data" method="post" asp-action="UploadDocument">
+                <input type="file" name="file" id="file" accept=".docx" style="display: none;" />
+                <button type="button" class="upload-btn" id="choose-file-btn">Переглянути файли</button>
+            </form>
+
+            <div class="file-info">
+                <p>Підтримувані типи файлів: .docx</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="file-preview-container" id="file-preview-container" style="display: none;">
+        <div class="file-preview" id="file-preview">
+            <div class="file-details">
+                <p id="file-name"></p>
+                <p id="file-size"></p>
+            </div>
+            <button id="remove-file" class="remove-btn">×</button>
+        </div>
+
+        <div class="action-btn-container">
+            <button id="action-btn" class="upload-btn">Перевірити</button> 
+        </div>
+    </div>
+</div>
