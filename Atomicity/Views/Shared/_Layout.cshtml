@@ -1,0 +1,73 @@
+﻿@model Atomicity.Models.DocumentModel
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid d-flex justify-content-between">
+                <a class="navbar-brand d-flex align-items-center" asp-area="" asp-controller="Pages" asp-action="Atomicity">
+                    <span>Атомарність і двозначність</span>
+                </a>
+
+                <div class="d-flex me-auto">
+                    <div class="dropdown">
+                        <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            Перевіряти
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li>
+                                <div class="form-check align-items-center d-flex gap-2">
+                                    <input class="form-check-input" type="checkbox" id="atomicityCheck" checked style="margin-left: -0.8rem;">
+                                    <label class="form-check-label" for="atomicityCheck">
+                                        Атомарність
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check align-items-center d-flex gap-2">
+                                    <input class="form-check-input" type="checkbox" id="ambiguityCheck" checked style="margin-left: -0.8rem;">
+                                    <label class="form-check-label" for="ambiguityCheck">
+                                        Двозначність
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Pages" asp-action="Explanation">Пояснення функціоналу</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - Atomicity and ambiguity
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
+
